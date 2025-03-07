@@ -408,12 +408,14 @@ const UI = {
         const transitionElem = document.getElementById("noVNC_transition_text");
         switch (state) {
             case 'init':
+                UI.startSpinner();
                 break;
             case 'connecting':
-                transitionElem.textContent = _("Connecting...");
+                UI.startSpinner();
                 document.documentElement.classList.add("noVNC_connecting");
                 break;
             case 'connected':
+                UI.stopSpinner();
                 document.documentElement.classList.add("noVNC_connected");
                 break;
             case 'disconnecting':
@@ -460,8 +462,8 @@ const UI = {
         UI.closeAllPanels();
         document.getElementById('noVNC_verify_server_dlg')
             .classList.remove('noVNC_open');
-        document.getElementById('noVNC_credentials_dlg')
-            .classList.remove('noVNC_open');
+/*         document.getElementById('noVNC_credentials_dlg')
+            .classList.remove('noVNC_open'); */
     },
 
     showStatus(text, statusType, time) {
@@ -1788,6 +1790,57 @@ const UI = {
         optn.text = text;
         optn.value = value;
         selectbox.options.add(optn);
+    },
+
+    initSpinner() {
+        console.log("initSpinner");
+        // ASCII spinner characters - using more visible characters
+        UI.spinnerChars = ['/', '-', '\\', '|'];
+        UI.spinnerIndex = 0;
+        UI.spinnerElement = document.querySelector('.noVNC_spinner');
+
+        // Make sure the spinner element exists and is visible
+        if (UI.spinnerElement) {
+            UI.spinnerElement.style.visibility = 'visible';
+            UI.spinnerElement.style.display = 'block';
+        } else {
+            console.error("Spinner element not found");
+        }
+    },
+
+    startSpinner() {
+        console.log("startSpinner");
+        if (UI.spinnerTimeoutId) return; // Already running
+
+        UI.spinnerIndex = 0;
+        UI.updateSpinner();
+
+        UI.spinnerTimeoutId = setInterval(() => {
+            UI.updateSpinner();
+        }, 250); // Update every 250ms
+    },
+
+    stopSpinner() {
+        console.log("stopSpinner");
+        if (UI.spinnerTimeoutId) {
+            clearInterval(UI.spinnerTimeoutId);
+            UI.spinnerTimeoutId = null;
+        }
+
+        if (UI.spinnerElement) {
+            UI.spinnerElement.textContent = '';
+        }
+    },
+
+    updateSpinner() {
+        if (!UI.spinnerElement) {
+            console.error("Spinner element not found in updateSpinner");
+            return;
+        }
+
+        UI.spinnerElement.textContent = UI.spinnerChars[UI.spinnerIndex];
+        UI.spinnerIndex = (UI.spinnerIndex + 1) % UI.spinnerChars.length;
+        console.log("Spinner updated:", UI.spinnerElement.textContent);
     },
 
 /* ------^-------
