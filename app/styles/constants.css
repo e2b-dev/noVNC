@@ -9,15 +9,15 @@
 
 :root {
     --novnc-grey: rgb(128, 128, 128);
-    --novnc-lightgrey: rgb(192, 192, 192);
+    --novnc-lightaccentgrey: rgb(192, 192, 192);
     --novnc-darkgrey: rgb(92, 92, 92);
 
     /* Transparent to make button colors adapt to the background */
     --novnc-buttongrey: rgba(192, 192, 192, 0.5);
 
-    --novnc-blue: rgb(110, 132, 163);
-    --novnc-lightblue: rgb(74, 144, 217);
-    --novnc-darkblue: rgb(83, 99, 122);
+    --novnc-accent: rgb(255, 140, 0);
+    --novnc-lightaccent: rgb(255, 165, 0);
+    --novnc-darkaccent: rgb(204, 85, 0);
 
     --novnc-green: rgb(0, 128, 0);
     --novnc-yellow: rgb(255, 255, 0);

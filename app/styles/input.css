@@ -34,7 +34,7 @@ textarea:focus-visible,
 button:focus-visible,
 select:focus-visible,
 input:focus-visible::file-selector-button {
-    outline: 2px solid var(--novnc-lightblue);
+    outline: 2px solid var(--novnc-lightaccent);
     outline-offset: 1px;
 }
 
@@ -54,7 +54,7 @@ input[type=time],
 input[type=url],
 input[type=week],
 textarea {
-    border: 1px solid var(--novnc-lightgrey);
+    border: 1px solid var(--novnc-lightaccentgrey);
     /* Account for borders on text inputs, buttons dont have borders */
     padding: calc(0.5em - 1px) var(--input-xpadding);
 }
@@ -266,7 +266,7 @@ input[type=checkbox] {
 }
 input[type=radio]:focus-visible,
 input[type=checkbox]:focus-visible {
-    outline-color: var(--novnc-lightblue);
+    outline-color: var(--novnc-lightaccent);
 }
 input[type=checkbox]::before,
 input[type=checkbox]:not(.toggle)::after,
@@ -297,7 +297,7 @@ input[type=checkbox]:not(.toggle) {
 }
 input[type=checkbox]:not(.toggle):checked,
 input[type=checkbox]:not(.toggle):indeterminate {
-    background-color: var(--novnc-blue);
+    background-color: var(--novnc-accent);
     background-image: var(--button-activation-overlay-light);
     background-blend-mode: overlay;
 }
@@ -324,7 +324,7 @@ input[type=radio] {
     border: 1px solid transparent; /* To ensure a smooth transition */
 }
 input[type=radio]:checked {
-    border: 4px solid var(--novnc-blue);
+    border: 4px solid var(--novnc-accent);
     background-color: white;
     /* button-activation-overlay should be removed from the radio
        element to not interfere with button-activation-overlay-light
@@ -376,7 +376,7 @@ input[type=checkbox].toggle:indeterminate {
     background-image: var(--button-activation-overlay);
 }
 input[type=checkbox].toggle:checked {
-    background-color: var(--novnc-blue);
+    background-color: var(--novnc-accent);
     background-image: var(--button-activation-overlay-light);
     background-blend-mode: overlay;
 }
@@ -470,7 +470,7 @@ input[type=range]::-moz-range-track {
     border-radius: 4px;
 }
 input[type=range]::-moz-range-progress {
-    background-color: var(--novnc-blue);
+    background-color: var(--novnc-accent);
     height: 9px;
     /* Needs rounded corners only on the left side. Otherwise the rounding of
        the progress track starts before the thumb, when the thumb is close to
@@ -486,7 +486,7 @@ input[type=range]::-webkit-slider-thumb {
     background-image: var(--button-activation-overlay);
     /* Disable Chrome's touch tap highlight to avoid conflicts with overlay */
     -webkit-tap-highlight-color: transparent;
-    border: 3px solid var(--novnc-blue);
+    border: 3px solid var(--novnc-accent);
     margin-top: -4px; /* (track height / 2) - (thumb height /2) */
 
     /* Since there is no way to style the left part of the range track in
@@ -502,7 +502,7 @@ input[type=range]::-webkit-slider-thumb {
     /* FIXME: We can remove the box shadow workaround when this is standardized:
               https://github.com/w3c/csswg-drafts/issues/4410 */
 
-    box-shadow: calc(-100vw - 8px) 0 0 100vw var(--novnc-blue);
+    box-shadow: calc(-100vw - 8px) 0 0 100vw var(--novnc-accent);
     clip-path: path(' \
      M -1000 3 \
      L 3 3 \
@@ -521,7 +521,7 @@ input[type=range]::-moz-range-thumb {
     box-sizing: border-box;
     background-color: white;
     background-image: var(--button-activation-overlay);
-    border: 3px solid var(--novnc-blue);
+    border: 3px solid var(--novnc-accent);
     margin-top: -7px;
 }
 
@@ -597,14 +597,14 @@ option {
     background-image: var(--button-activation-overlay);
 }
 option:checked {
-    background-color: var(--novnc-lightgrey);
+    background-color: var(--novnc-lightaccentgrey);
 }
 /* Change the look when the <select> isn't used as a dropdown. When "size"
    or "multiple" are set, these elements behaves more like lists. */
 select[size]:not([size="1"]), select[multiple] {
     background-color: white;
     background-image: unset; /* Don't show the arrow and other gradients */
-    border: 1px solid var(--novnc-lightgrey);
+    border: 1px solid var(--novnc-lightaccentgrey);
     padding: 0;
     font-weight: normal; /* Without this, options get bold font in WebKit. */
 
