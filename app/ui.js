@@ -1960,7 +1960,7 @@ const UI = {
 
         UI.spinnerTimeoutId = setInterval(() => {
             UI.updateSpinner();
-        }, 100); // Update every 250ms
+        }, 100); // Update every 100ms
     },
 
     stopSpinner() {
