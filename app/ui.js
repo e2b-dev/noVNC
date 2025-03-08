@@ -1793,9 +1793,8 @@ const UI = {
     },
 
     initSpinner() {
-        console.log("initSpinner");
         // ASCII spinner characters - using more visible characters
-        UI.spinnerChars = ['/', '-', '\\', '|'];
+        UI.spinnerChars = ['◰', '◳', '◲', '◱'];
         UI.spinnerIndex = 0;
         UI.spinnerElement = document.querySelector('.noVNC_spinner');
 
@@ -1803,13 +1802,10 @@ const UI = {
         if (UI.spinnerElement) {
             UI.spinnerElement.style.visibility = 'visible';
             UI.spinnerElement.style.display = 'block';
-        } else {
-            console.error("Spinner element not found");
         }
     },
 
     startSpinner() {
-        console.log("startSpinner");
         if (UI.spinnerTimeoutId) return; // Already running
 
         UI.spinnerIndex = 0;
@@ -1817,11 +1813,10 @@ const UI = {
 
         UI.spinnerTimeoutId = setInterval(() => {
             UI.updateSpinner();
-        }, 250); // Update every 250ms
+        }, 100); // Update every 250ms
     },
 
     stopSpinner() {
-        console.log("stopSpinner");
         if (UI.spinnerTimeoutId) {
             clearInterval(UI.spinnerTimeoutId);
             UI.spinnerTimeoutId = null;
@@ -1834,13 +1829,11 @@ const UI = {
 
     updateSpinner() {
         if (!UI.spinnerElement) {
-            console.error("Spinner element not found in updateSpinner");
             return;
         }
 
         UI.spinnerElement.textContent = UI.spinnerChars[UI.spinnerIndex];
         UI.spinnerIndex = (UI.spinnerIndex + 1) % UI.spinnerChars.length;
-        console.log("Spinner updated:", UI.spinnerElement.textContent);
     },
 
 /* ------^-------

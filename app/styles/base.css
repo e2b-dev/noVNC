@@ -63,7 +63,7 @@ html {
 
 .noVNC_spinner {
     position: relative;
-    font-size: 2em;
+    font-size: 3em;
     font-family: monospace;
     display: inline-block;
     width: 1em;
