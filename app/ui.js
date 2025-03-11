@@ -182,7 +182,7 @@ const UI = {
         UI.initSetting('quality', 6);
         UI.initSetting('compression', 2);
         UI.initSetting('shared', true);
-        UI.initSetting('bell', 'on');
+        UI.initSetting('bell', 'off');
         UI.initSetting('view_only', false);
         UI.initSetting('show_dot', false);
         UI.initSetting('path', 'websockify');
